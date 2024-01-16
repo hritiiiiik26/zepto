@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./AutocompleteChips.css";
 import { names } from "../utils/constants";
+import img from "../no-result-found.jpg";
 
 const AutocompleteChips = () => {
-  const [show, setShow] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
 
@@ -21,12 +21,14 @@ const AutocompleteChips = () => {
     setSelectedItems(updatedItems);
   };
 
+  const filteredItems = names.filter(
+    (item) =>
+      !selectedItems.includes(item) &&
+      item.toLowerCase().includes(inputValue.toLowerCase())
+  );
+
   return (
-    <div
-      className="autocomplete-container"
-      aria-hidden
-      onClick={() => setShow(true)}
-    >
+    <div className="autocomplete-container">
       <div className="chips-input-container">
         <div className="chips-container">
           {selectedItems.map((item) => (
@@ -44,21 +46,19 @@ const AutocompleteChips = () => {
         />
       </div>
 
-      {show ? (
+      {filteredItems.length > 0 ? (
         <ul className="suggestions-list">
-          {names
-            .filter(
-              (item) =>
-                !selectedItems.includes(item) &&
-                item.toLowerCase().includes(inputValue.toLowerCase())
-            )
-            .map((item) => (
-              <li key={item} onClick={() => handleItemClick(item)}>
-                {item}
-              </li>
-            ))}
+          {filteredItems.map((item) => (
+            <li key={item} onClick={() => handleItemClick(item)}>
+              {item}
+            </li>
+          ))}
         </ul>
-      ) : null}
+      ) : (
+        <div className="img">
+          <img src={img} alt="/" width="100%" />
+        </div>
+      )}
     </div>
   );
 };

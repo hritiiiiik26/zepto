@@ -71,6 +71,20 @@ input {
   z-index: 1;
 }
 
+.img {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  position: absolute;
+  top: 100%;
+  width: 45%;
+  max-height: 200px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
 .suggestions-list li {
   padding: 10px;
   cursor: pointer;
@@ -81,6 +95,10 @@ input {
   background-color: #f1f1f1;
 }
 
+.img {
+  object-fit: cover;
+}
+
 @media (max-width: 600px) {
   .chips-input-container {
     padding: 9px 65px;
@@ -88,6 +106,10 @@ input {
   }
 
   .suggestions-list {
+    width: 100%;
+  }
+
+  .img {
     width: 100%;
   }
 
