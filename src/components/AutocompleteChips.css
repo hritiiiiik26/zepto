@@ -1,0 +1,106 @@
+.autocomplete-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.chips-input-container {
+  display: flex;
+  padding: 9px 250px;
+  align-items: center;
+  gap: 8px;
+  height: 20px;
+  background: #fff;
+  border-bottom: 4px solid rgb(0, 242, 255);
+  margin-bottom: 4px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: none;
+  background: #fff;
+  outline: none;
+}
+
+.chips-container {
+  display: flex;
+  gap: 8px;
+}
+
+.chip {
+  background-color: #f1f1f1;
+  padding: 6px 10px;
+  border-radius: 16px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.chip span {
+  cursor: pointer;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.autocomplete-input {
+  flex-grow: 1;
+  padding: 4px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.suggestions-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: auto;
+  position: absolute;
+  top: 100%;
+  width: 45%;
+  max-height: 200px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.suggestions-list li:hover {
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 600px) {
+  .chips-input-container {
+    padding: 9px 65px;
+    overflow: auto;
+  }
+
+  .suggestions-list {
+    width: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../zepto2.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Arial", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
